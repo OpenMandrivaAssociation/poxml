@@ -1,7 +1,7 @@
 Summary:	Xml2po and vice versa converters for KDE
 Name:		poxml
 Version:	4.12.1
-Release:	1
+Release:	2
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
