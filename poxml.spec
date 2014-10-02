@@ -3,8 +3,8 @@ Name:		poxml
 Version:	4.14.1
 Release:	1
 Epoch:		1
-Group:		Graphical desktop/KDE
 License:	GPLv2+
+Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
@@ -13,6 +13,7 @@ Url:		http://www.kde.org
 %define ftpdir stable
 %endif
 Source0:	ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/%{name}-%{version}.tar.xz
+BuildRequires:	gettext-devel
 BuildRequires:	kdelibs4-devel
 Suggests:	md5deep
 Conflicts:	kdesdk4-po2xml < 1:4.11.0
@@ -44,6 +45,7 @@ Xml2po and vice versa converters for KDE.
 %changelog
 * Mon Sep 29 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.14.1-1
 - New version 4.14.1
+- Add gettext-devel to BuildRequires
 
 * Tue Jul 15 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.13.3-1
 - New version 4.13.3
