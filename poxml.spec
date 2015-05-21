@@ -1,6 +1,6 @@
 Summary:	Xml2po and vice versa converters for KDE
 Name:		poxml
-Version:	15.04.0
+Version:	15.04.1
 Release:	1
 Epoch:		1
 License:	GPLv2+
@@ -12,9 +12,9 @@ Url:		http://www.kde.org
 %else
 %define ftpdir stable
 %endif
-Source0:	ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{ftpdir}/application/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	gettext-devel
-BuildRequires:	kdelibs4-devel
+BuildRequires:	kdelibs-devel
 Suggests:	md5deep
 Conflicts:	kdesdk4-po2xml < 1:4.11.0
 Obsoletes:	kdesdk4-po2xml < 1:4.11.0
