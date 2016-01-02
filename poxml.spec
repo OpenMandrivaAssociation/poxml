@@ -14,7 +14,10 @@ Url:		http://www.kde.org
 %endif
 Source0:	http://download.kde.org/%{ftpdir}/application/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	gettext-devel
-BuildRequires:	kdelibs-devel
+BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(KF5DocTools)
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5Xml)
 Suggests:	md5deep
 Conflicts:	kdesdk4-po2xml < 1:4.11.0
 Obsoletes:	kdesdk4-po2xml < 1:4.11.0
@@ -23,25 +26,23 @@ Obsoletes:	kdesdk4-po2xml < 1:4.11.0
 Xml2po and vice versa converters for KDE.
 
 %files
-%{_bindir}/po2xml                                                                                      
-%{_bindir}/split2po                                                                                    
-%{_bindir}/swappo                                                                                      
-%{_bindir}/xml2pot                                                                                     
-%{_mandir}/man1/po2xml.1.*                                                                             
-%{_mandir}/man1/split2po.1.*                                                                           
-%{_mandir}/man1/swappo.1.*                                                                             
-%{_mandir}/man1/xml2pot.1.*                                                                            
-                                                                                                       
+%{_bindir}/po2xml
+%{_bindir}/split2po
+%{_bindir}/swappo
+%{_bindir}/xml2pot
+%{_mandir}/man1/po2xml.1.*
+%{_mandir}/man1/split2po.1.*
+%{_mandir}/man1/swappo.1.*
+%{_mandir}/man1/xml2pot.1.*
+
 #----------------------------------------------------------------------------
 
 %prep
 %setup -q
+%cmake_kde5
 
 %build
-%cmake_kde4 \
-	-DCMAKE_MINIMUM_REQUIRED_VERSION=3.1
-%make
+%ninja -C build
 
 %install
-%makeinstall_std -C build
-
+%ninja_install -C build
