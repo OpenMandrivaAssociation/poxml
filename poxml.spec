@@ -1,6 +1,6 @@
 Summary:	Xml2po and vice versa converters for KDE
 Name:		poxml
-Version:	15.12.3
+Version:	16.04.0
 Release:	1
 Epoch:		1
 License:	GPLv2+
@@ -12,7 +12,7 @@ Url:		http://www.kde.org
 %else
 %define ftpdir stable
 %endif
-Source0:	http://download.kde.org/%{ftpdir}/application/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{ftpdir}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	gettext-devel
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5DocTools)
