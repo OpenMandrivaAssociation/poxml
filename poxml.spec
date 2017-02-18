@@ -1,6 +1,6 @@
 Summary:	Xml2po and vice versa converters for KDE
 Name:		poxml
-Version:	16.08.3
+Version:	16.12.2
 Release:	1
 Epoch:		1
 License:	GPLv2+
