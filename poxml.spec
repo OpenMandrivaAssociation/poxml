@@ -1,18 +1,13 @@
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	Xml2po and vice versa converters for KDE
 Name:		poxml
-Version:	16.12.2
+Version:	17.04.0
 Release:	1
 Epoch:		1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
-%define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
-%if %{is_beta}
-%define ftpdir unstable
-%else
-%define ftpdir stable
-%endif
-Source0:	http://download.kde.org/%{ftpdir}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	gettext-devel
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5DocTools)
@@ -25,7 +20,7 @@ Obsoletes:	kdesdk4-po2xml < 1:4.11.0
 %description
 Xml2po and vice versa converters for KDE.
 
-%files
+%files -f all.lang
 %{_bindir}/po2xml
 %{_bindir}/split2po
 %{_bindir}/swappo
@@ -46,3 +41,8 @@ Xml2po and vice versa converters for KDE.
 
 %install
 %ninja_install -C build
+%find_lang po2xml --with-man
+%find_lang split2po --with-man
+%find_lang swappo --with-man
+%find_lang xml2pot --with-man
+cat *.lang >all.lang
