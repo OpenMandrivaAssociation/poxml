@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	Xml2po and vice versa converters for KDE
 Name:		poxml
-Version:	17.04.2
+Version:	17.08.1
 Release:	1
 Epoch:		1
 License:	GPLv2+
